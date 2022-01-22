@@ -14,8 +14,18 @@ class UserSeeder extends Seeder
     public function run()
     {
         $testUser = \App\Models\User::create([
-            'name'              => 'Sample User',
-            'email'             => 'test@test.com',
+            'name'              => 'John Doe',
+            'email'             => 'johndoe@example.com',
+            'password'          => 'password',
+            'email_verified_at' => \Carbon\Carbon::now(),
+        ]);
+        \App\Models\Channel::factory()->create([
+            'title'     => $testUser->name,
+            'user_id'   => $testUser->id,
+        ]);
+        $testUser = \App\Models\User::create([
+            'name'              => 'Jane Doe',
+            'email'             => 'janedoe@example.com',
             'password'          => 'password',
             'email_verified_at' => \Carbon\Carbon::now(),
         ]);

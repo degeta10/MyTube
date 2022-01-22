@@ -60,7 +60,10 @@
                                 <p class="text-center">{{ $channel->description }}</p>
                                 @auth
                                     <div class="text-center">
-                                        <button class="btn btn-danger" type="submit">Subscribe</button>
+                                        <subscribe-button inline-template
+                                            :subscriptions="{{ $channel->subscriptions }}">
+                                            <button class="btn btn-danger" @click="toggleSubscription">Subscribe</button>
+                                        </subscribe-button>
                                     </div>
                                 @endauth
                             </div>
