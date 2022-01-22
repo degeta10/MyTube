@@ -58,8 +58,12 @@
                             <div class="form-group">
                                 <h4 class="text-center">{{ $channel->title }}</h4>
                                 <p class="text-center">{{ $channel->description }}</p>
+                                @auth
+                                    <div class="text-center">
+                                        <button class="btn btn-danger" type="submit">Subscribe</button>
+                                    </div>
+                                @endauth
                             </div>
-
                         @endif
 
                         @if ($channel->editable())
